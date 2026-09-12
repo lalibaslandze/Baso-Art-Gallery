@@ -1,0 +1,154 @@
+:root {
+  --cream:      #F5F1E9;
+  --cream-dark: #EDE7DA;
+  --ink:        #1C1B19;
+  --ink-soft:   #4A4741;
+  --line:       #DDD5C5;
+  --clay:       #B5652E;
+  --gold:       #C79A4B;
+
+
+  --container: 1240px;
+  --gap: clamp(1.5rem, 4vw, 3rem);
+  --section-height: 90vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+
+/* ARTWORKS PAGE STYLES */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f5f0;
+  color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* PAGE */
+
+h1 {
+  max-width: 1400px;
+  margin: 70px auto 50px;
+  padding: 0 40px;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* ARTWORK GALLERY */
+
+#artworks-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 35px;
+}
+
+/* ARTWORK CARD */
+
+.artwork-card {
+  min-width: 0;
+}
+
+/* IMAGE */
+
+.artwork-card img {
+  width: 100%;
+  height: 430px;
+  object-fit: contain;
+  display: block;
+
+  transition: opacity 0.3s ease;
+}
+
+.artwork-card img:hover {
+  opacity: 0.88;
+}
+
+/* INFORMATION */
+
+.artwork-card h2 {
+  margin: 18px 0 8px;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.artwork-card p {
+  margin: 4px 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666;
+}
+
+/* PRICE */
+
+.artwork-card p:last-child {
+  margin-top: 12px;
+  color: #222;
+  font-size: 14px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  h1 {
+    margin-top: 50px;
+    padding: 0 25px;
+    font-size: 36px;
+  }
+
+  #artworks-container {
+    padding: 0 25px 60px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 25px;
+  }
+
+  .artwork-card img {
+    height: 380px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  h1 {
+    margin: 35px 0;
+    padding: 0 20px;
+    font-size: 30px;
+  }
+
+  #artworks-container {
+    padding: 0 20px 50px;
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .artwork-card img {
+    height: auto;
+    max-height: none;
+  }
+
+  .artwork-card h2 {
+    font-size: 20px;
+  }
+}
