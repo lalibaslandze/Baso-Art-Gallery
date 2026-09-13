@@ -15,16 +15,9 @@
 
 html {
   scroll-behavior: smooth;
-}
 
+  /* ARTWORKS PAGE STYLES */
 
-
-
-
-
-
-
-/* ARTWORKS PAGE STYLES */
 * {
   box-sizing: border-box;
 }
@@ -36,31 +29,95 @@ body {
   font-family: Georgia, "Times New Roman", serif;
 }
 
-/* PAGE */
+
+/* PAGE TITLE */
 
 h1 {
   max-width: 1400px;
   margin: 70px auto 50px;
   padding: 0 40px;
+
   font-size: 42px;
   font-weight: 400;
   letter-spacing: 1px;
 }
 
-/* ARTWORK GALLERY */
 
-#artworks-container {
+/* PAGE LAYOUT */
+
+.gallery-layout {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px 80px;
+
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 50px;
+}
+
+
+/* FILTER SIDEBAR */
+
+.filters {
+  padding-right: 25px;
+  border-right: 1px solid #dedbd4;
+}
+
+.filters h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.filter-group {
+  margin-top: 35px;
+}
+
+.filter-group h3 {
+  margin: 0 0 15px;
+
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 10px;
+
+  font-size: 14px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.filter-group input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  cursor: pointer;
+}
+
+
+/* ARTWORK GALLERY */
+
+#artworks-container {
+  min-width: 0;
 
   columns: 3;
   column-gap: 28px;
 }
 
+
+/* ARTWORK CARD */
+
 .artwork-card {
   width: 100%;
   display: inline-block;
+
   margin: 0 0 28px;
 
   break-inside: avoid;
@@ -68,6 +125,13 @@ h1 {
   background: #faf9f6;
   border: 1px solid #dedbd4;
   padding: 18px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artwork-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
 }
 
 
@@ -79,15 +143,12 @@ h1 {
   display: block;
 }
 
-.artwork-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
-}
 
 /* INFORMATION */
 
 .artwork-card h2 {
   margin: 18px 0 8px;
+
   font-size: 21px;
   font-weight: 400;
   line-height: 1;
@@ -95,62 +156,93 @@ h1 {
 
 .artwork-card p {
   margin: 4px 0;
+
   font-size: 13px;
   line-height: 1.5;
   color: #666;
 }
 
+
 /* PRICE */
 
 .artwork-card p:last-child {
   margin-top: 12px;
+
   color: #222;
   font-size: 14px;
 }
 
-/* TABLET */
 
-@media (max-width: 900px) {
 
-  h1 {
-    margin-top: 50px;
-    padding: 0 25px;
-    font-size: 36px;
-  }
+/* RESPONSIVE DESIGN */
 
-  #artworks-container {
-    padding: 0 25px 60px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px 25px;
-  }
-
-  .artwork-card img {
-    height: 380px;
-  }
+#artworks-container {
+  columns: 3;
+  column-gap: 28px;
 }
 
-/* MOBILE */
 
-@media (max-width: 768px) {
+/* FLUID TYPOGRAPHY */
 
-  h1 {
-    margin: 35px 0;
-    padding: 0 20px;
-    font-size: 30px;
+h1 {
+  font-size: clamp(30px, 3vw, 42px);
+}
+
+.filters h2 {
+  font-size: clamp(17px, 1.8vw, 20px);
+}
+
+.filter-group h3 {
+  font-size: clamp(11px, 1.1vw, 13px);
+}
+
+.filter-group label {
+  font-size: clamp(12px, 1.2vw, 14px);
+}
+
+.artwork-card h2 {
+  font-size: clamp(17px, 1.8vw, 21px);
+}
+
+.artwork-card p {
+  font-size: clamp(11px, 1.1vw, 13px);
+}
+
+.artwork-card p:last-child {
+  font-size: clamp(12px, 1.2vw, 14px);
+}
+
+
+/* MEDIUM SCREENS */
+
+@media (max-width: 1100px) {
+
+  .gallery-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 30px;
+    padding: 0 25px 60px;
   }
 
   #artworks-container {
+    columns: 2;
+    column-gap: 24px;
+  }
+
+}
+
+
+/* SMALL SCREENS */
+
+@media (max-width: 750px) {
+
+  .gallery-layout {
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 20px;
     padding: 0 20px 50px;
-    grid-template-columns: 1fr;
-    gap: 45px;
   }
 
-  .artwork-card img {
-    height: auto;
-    max-height: none;
+  #artworks-container {
+    columns: 1;
   }
 
-  .artwork-card h2 {
-    font-size: 20px;
-  }
 }
