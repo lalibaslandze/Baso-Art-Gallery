@@ -11,48 +11,74 @@
 <!-- ===== HEADER ===== -->
 <header class="site-header">
   <div class="header-inner">
-    <a href="#" class="logo">
-      <img src="images/logo-for-light.png" width="200" alt="BASO Art Gallery Logo">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo-for-light.png" alt="BASO Art Gallery Logo">
     </a>
 
-    
     <nav class="main-nav" id="main-nav">
-      <a href="#home" class="active">Home</a>
-      <a href="#artists">Artists</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="artists.html">Artists</a>
       <a href="artworks.html">Artworks</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="add-icons">
-      <button class="shopping-cart" aria-label="View cart">
-        <img src="images/shopping-bag.png" width="24" height="24" alt="Cart Icon">
-      </button>
-      <button class="Account" aria-label="View account">
-        <img src="images/user-logo.png" width="24" height="24" alt="User Icon">
-      </button>
-    </div>
+  <div class="header-actions">
 
-    <div class="header-actions">
-      <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-    </div>
+  <button class="icon-btn shopping-cart" aria-label="View cart">
+    <img src="images/shopping-bag.svg" alt="">
+  </button>
+
+  <button class="icon-btn account" aria-label="View account">
+    <img src="images/user-logo.svg" alt="">
+  </button>
+
+  <button
+    class="icon-btn menu-toggle"
+    id="menu-toggle"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
+    <img src="images/toggle.svg" alt="">
+  </button>
+
+</div>
   </div>
 </header>
 
 
 <!-- ===== HERO ===== -->
+ 
 <section class="hero" id="home">
+
   <div class="hero-media">
-    <img src="images/hero-image.png" alt="A minimalist gallery space with an abstract painting on display">
+    <img
+      src="images/hero-image.png"
+      alt="A minimalist gallery space with an abstract painting on display"
+    >
   </div>
+
   <div class="hero-content">
-    <h1>Art inspires.<br>Beauty connects.</h1>
-    <p>Discover original artworks by emerging and established artists from Georgia.</p>
-    <a href="artworks.html" class="btn btn-dark">Explore artworks</a>
+
+    <div class="container">
+
+      <h1>Art inspires.<br>Beauty connects.</h1>
+
+      <p>
+        Discover original artworks by emerging and established artists from Georgia.
+      </p>
+
+      <a href="artworks.html" class="btn btn-dark">
+        Explore artworks
+      </a>
+
+    </div>
+
   </div>
+
 </section>
+
 
 <!-- ===== FEATURED ARTWORKS ===== -->
 <section class="featured-artworks" id="artworks">

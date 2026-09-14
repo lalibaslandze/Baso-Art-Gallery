@@ -1,248 +1,689 @@
+/* ========================================
+   ROOT VARIABLES
+   ======================================== */
+
 :root {
-  --cream:      #F5F1E9;
+
+  /* COLORS */
+
+  --cream: #F5F1E9;
   --cream-dark: #EDE7DA;
-  --ink:        #1C1B19;
-  --ink-soft:   #4A4741;
-  --line:       #DDD5C5;
-  --clay:       #B5652E;
-  --gold:       #C79A4B;
+  --ink: #1C1B19;
+  --ink-soft: #4A4741;
+  --line: #DDD5C5;
+  --clay: #B5652E;
+  --gold: #C79A4B;
 
 
-  --container: 1240px;
-  --gap: clamp(1.5rem, 4vw, 3rem);
-  --section-height: 90vh;
+  /* LAYOUT */
+
+  --container: 1390px;
+
+  --page-padding: clamp(20px, 3vw, 40px);
+
+  --section-gap: clamp(40px, 6vw, 90px);
+
+  --gap: clamp(16px, 2vw, 30px);
+
+  --header-height: clamp(60px, 5vw, 70px);
+
+
+  /* TYPOGRAPHY */
+
+  --font-xs: clamp(0.7rem, 0.75vw, 0.8rem);
+  --font-sm: clamp(0.8rem, 0.9vw, 0.95rem);
+  --font-md: clamp(0.9rem, 1vw, 1.1rem);
+  --font-lg: clamp(1.15rem, 1.6vw, 1.5rem);
+  --font-xl: clamp(1.8rem, 3vw, 2.6rem);
+  --font-hero: clamp(2.4rem, 5vw, 4.5rem);
+
+
+  /* LINE HEIGHT */
+
+  --line-tight: 1;
+  --line-normal: 1.4;
+  --line-relaxed: 1.6;
+
+
+  /* LETTER SPACING */
+
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+
 }
 
+
+/* ========================================
+   GLOBAL RESET
+   ======================================== */
+
 html {
-  scroll-behavior: smooth;
-
-  /* ARTWORKS PAGE STYLES */
-
-* {
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 body {
-  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-top: var(--header-height);
+
   background: #f7f5f0;
-  color: #222;
+  color: var(--ink);
+
   font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--font-md);
+  line-height: var(--line-normal);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
 
 
-/* PAGE TITLE */
+/* ========================================
+   HEADER
+   ======================================== */
+
+.site-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  background: #f7f5f0;
+}
+
+.header-inner {
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+
+  width: 100%;
+  max-width: var(--container);
+
+  min-height: var(--header-height);
+
+  margin: 0 auto;
+
+  padding-inline: var(--page-padding);
+}
+
+
+/* ----------------------------------------
+   LOGO
+   ---------------------------------------- */
+
+.logo img {
+  width: clamp(120px, 10vw, 150px);
+  height: auto;
+}
+
+
+/* ----------------------------------------
+   NAVIGATION
+   ---------------------------------------- */
+
+.main-nav {
+  display: flex;
+
+  justify-self: center;
+
+  gap: clamp(18px, 2vw, 30px);
+}
+
+.main-nav a {
+  font-size: var(--font-md);
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: var(--ink);
+
+  text-underline-offset: 10px;
+
+  line-height: var(--line-tight);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  text-decoration: underline;
+}
+
+
+/* ----------------------------------------
+   HEADER ACTIONS
+   ---------------------------------------- */
+
+.header-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  outline: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+
+/* ========================================
+   HERO
+   ======================================== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* HERO TEXT BOX */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: var(--page-padding);
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+}
+
+.hero-content .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.hero-content h1 {
+  margin: 0;
+  padding: 0;
+
+  font-size: var(--font-hero);
+  font-weight: 400;
+  line-height: var(--line-tight);
+}
+
+.hero-content p {
+  max-width: 400px;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: var(--font-md);
+  line-height: var(--line-relaxed);
+}
+
+/* BUTTON */
+
+.hero-content .btn {
+  margin: 0 !important;
+}
+
+
+/* ========================================
+   BUTTON DESIGN
+   ======================================== */
+
+/* Base button — shared by ALL buttons */
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.9rem 1.75rem;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  border-radius: 2px;
+  border: 1px solid transparent;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+  text-decoration: none;
+}
+
+
+/* ----------------------------------------
+   DARK BUTTON
+   Main / primary button
+   ---------------------------------------- */
+
+.btn-dark {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn-dark:hover {
+  background: #000;
+}
+
+
+/* ----------------------------------------
+   OUTLINE BUTTON
+   Gold outline
+   ---------------------------------------- */
+
+.btn-outline {
+  border-color: var(--gold);
+  color: var(--cream);
+}
+
+.btn-outline:hover {
+  background: rgba(199, 154, 75, 0.15);
+}
+
+
+/* ----------------------------------------
+   LIGHT OUTLINE BUTTON
+   Transparent gold outline
+   ---------------------------------------- */
+
+.btn-outline-light {
+  width: fit-content;
+
+  background: transparent;
+
+  border-color: var(--gold);
+  color: var(--cream);
+}
+
+.btn-outline-light:hover {
+  background: rgba(199, 154, 75, 0.15);
+}
+
+
+/* ----------------------------------------
+   BUTTON PRESS EFFECT
+   Applies to ALL buttons
+   ---------------------------------------- */
+
+.btn:active {
+  transform: translateY(4px);
+
+  box-shadow:
+    0 1px 0 #000,
+    0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+
+
+
+/* ========================================
+   ARTWORKS PAGE
+   ======================================== */
+
+
+/* ----------------------------------------
+   PAGE TITLE
+   ---------------------------------------- */
 
 h1 {
   max-width: 1400px;
-  margin: 70px auto 50px;
-  padding: 0 40px;
 
-  font-size: 42px;
+  margin: clamp(20px, 3vw, 30px) auto
+          clamp(30px, 4vw, 50px);
+
+  padding-inline: var(--page-padding);
+
+  font-size: var(--font-xl);
+
   font-weight: 400;
-  letter-spacing: 1px;
+
+  line-height: var(--line-tight);
+
+  letter-spacing: var(--tracking-normal);
 }
 
 
-/* PAGE LAYOUT */
+/* ========================================
+   PAGE LAYOUT
+   ======================================== */
 
 .gallery-layout {
-  max-width: 1400px;
+  width: 100%;
+
+  max-width: var(--container);
+
   margin: 0 auto;
-  padding: 0 40px 80px;
+
+  padding-inline: var(--page-padding);
 
   display: grid;
+
   grid-template-columns: 220px minmax(0, 1fr);
-  gap: 50px;
+
+  gap: clamp(24px, 3vw, 50px);
 }
 
 
-/* FILTER SIDEBAR */
+/* ========================================
+   FILTER SIDEBAR
+   ======================================== */
 
 .filters {
+  min-width: 0;
+
   padding-right: 25px;
+
   border-right: 1px solid #dedbd4;
 }
 
-.filters h2 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 400;
-}
-
 .filter-group {
-  margin-top: 35px;
+  margin-top: clamp(24px, 2.5vw, 35px);
 }
 
 .filter-group h3 {
-  margin: 0 0 15px;
+  margin: 0 0 clamp(10px, 1.2vw, 15px);
 
-  font-size: 13px;
+  font-size: var(--font-xs);
+
   font-weight: 500;
+
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+
+  letter-spacing: var(--tracking-wide);
+
+  line-height: var(--line-normal);
 }
 
 .filter-group label {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
 
   margin-bottom: 10px;
 
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: var(--font-sm);
+
+  line-height: var(--line-normal);
+
   cursor: pointer;
 }
 
 .filter-group input[type="checkbox"] {
   width: 15px;
   height: 15px;
+
   margin: 0;
+
   cursor: pointer;
 }
 
 
-/* ARTWORK GALLERY */
+/* ========================================
+   ARTWORK GALLERY
+   ======================================== */
 
 #artworks-container {
   min-width: 0;
 
-  columns: 3;
-  column-gap: 28px;
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: var(--gap);
 }
 
 
-/* ARTWORK CARD */
+/* ========================================
+   ARTWORK CARD
+   ======================================== */
 
 .artwork-card {
   width: 100%;
-  display: inline-block;
-
-  margin: 0 0 28px;
-
-  break-inside: avoid;
 
   background: #faf9f6;
-  border: 1px solid #dedbd4;
-  padding: 18px;
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #dedbd4;
+
+  padding: clamp(12px, 1.3vw, 18px);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .artwork-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.10);
 }
 
 
-/* IMAGE */
+/* ----------------------------------------
+   ARTWORK IMAGE
+   ---------------------------------------- */
 
 .artwork-card img {
   width: 100%;
   height: auto;
+
   display: block;
 }
 
 
-/* INFORMATION */
+/* ----------------------------------------
+   ARTWORK INFORMATION
+   ---------------------------------------- */
 
 .artwork-card h2 {
-  margin: 18px 0 8px;
+  margin:
+    clamp(14px, 1.5vw, 18px)
+    0
+    8px;
 
-  font-size: 21px;
+  font-size: var(--font-lg);
+
   font-weight: 400;
-  line-height: 1;
+
+  line-height: var(--line-tight);
 }
 
 .artwork-card p {
   margin: 4px 0;
 
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: var(--font-xs);
+
+  line-height: var(--line-normal);
+
   color: #666;
 }
 
 
-/* PRICE */
+/* ----------------------------------------
+   PRICE
+   ---------------------------------------- */
 
 .artwork-card p:last-child {
   margin-top: 12px;
 
-  color: #222;
-  font-size: 14px;
+  color: var(--ink);
+
+  font-size: var(--font-sm);
 }
 
 
-
-/* RESPONSIVE DESIGN */
-
-#artworks-container {
-  columns: 3;
-  column-gap: 28px;
-}
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
 
-/* FLUID TYPOGRAPHY */
+/* ----------------------------------------
+   TABLET / MEDIUM SCREENS
+   ---------------------------------------- */
 
-h1 {
-  font-size: clamp(30px, 3vw, 42px);
-}
+@media (max-width: 900px) {
 
-.filters h2 {
-  font-size: clamp(17px, 1.8vw, 20px);
-}
+  /* HEADER */
 
-.filter-group h3 {
-  font-size: clamp(11px, 1.1vw, 13px);
-}
+  .main-nav {
+    display: none;
+  }
 
-.filter-group label {
-  font-size: clamp(12px, 1.2vw, 14px);
-}
+  .header-inner {
+    grid-template-columns: 1fr auto;
+  }
 
-.artwork-card h2 {
-  font-size: clamp(17px, 1.8vw, 21px);
-}
+  .header-actions {
+    justify-self: end;
+  }
 
-.artwork-card p {
-  font-size: clamp(11px, 1.1vw, 13px);
-}
-
-.artwork-card p:last-child {
-  font-size: clamp(12px, 1.2vw, 14px);
-}
+  .menu-toggle {
+    display: flex;
+  }
 
 
-/* MEDIUM SCREENS */
-
-@media (max-width: 1100px) {
+  /* ARTWORK LAYOUT */
 
   .gallery-layout {
-    grid-template-columns: 190px minmax(0, 1fr);
-    gap: 30px;
-    padding: 0 25px 60px;
+    grid-template-columns:
+      180px minmax(0, 1fr);
+
+    gap: 24px;
+
+    padding-inline: 20px;
+
+    padding-bottom: 60px;
   }
+
+
+  /* ARTWORK GRID */
 
   #artworks-container {
-    columns: 2;
-    column-gap: 24px;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
   }
 
 }
 
 
-/* SMALL SCREENS */
+/* ----------------------------------------
+   MOBILE / SMALL SCREENS
+   ---------------------------------------- */
 
-@media (max-width: 750px) {
+@media (max-width: 650px) {
 
   .gallery-layout {
-    grid-template-columns: 160px minmax(0, 1fr);
+    grid-template-columns:
+      140px minmax(0, 1fr);
+
+    gap: 16px;
+
+    padding-inline: 14px;
+
+    padding-bottom: 50px;
+  }
+
+
+  #artworks-container {
+    grid-template-columns: 1fr;
+
     gap: 20px;
-    padding: 0 20px 50px;
-  }
-
-  #artworks-container {
-    columns: 1;
   }
 
 }

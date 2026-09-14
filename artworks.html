@@ -11,43 +11,50 @@
 <!-- ===== HEADER ===== -->
 <header class="site-header">
   <div class="header-inner">
-    <a href="#" class="logo">
-      <img src="images/logo-for-light.png" width="200" alt="BASO Art Gallery Logo">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo-for-light.png" alt="BASO Art Gallery Logo">
     </a>
 
-    
     <nav class="main-nav" id="main-nav">
-      <a href="#home" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="#artists">Artists</a>
-      <a href="#artworks">Artworks</a>
+      <a href="artworks.html" class="active">Artworks</a>
       <a href="#about">About Us</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="add-icons">
-      <button class="shopping-cart" aria-label="View cart">
-        <img src="images/shopping-bag.png" width="24" height="24" alt="Cart Icon">
-      </button>
-      <button class="Account" aria-label="View account">
-        <img src="images/user-logo.png" width="24" height="24" alt="User Icon">
-      </button>
-    </div>
+  <div class="header-actions">
 
-    <div class="header-actions">
-      <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-    </div>
+  <button class="icon-btn shopping-cart" aria-label="View cart">
+    <img src="images/shopping-bag.svg" alt="">
+  </button>
+
+  <button class="icon-btn account" aria-label="View account">
+    <img src="images/user-logo.svg" alt="">
+  </button>
+
+  <button
+    class="icon-btn menu-toggle"
+    id="menu-toggle"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
+    <img src="images/toggle.svg" alt="">
+  </button>
+
+</div>
   </div>
 </header>
+
+
+<!-- ===== ARTWORKS ===== -->
 
 <h1>Artworks</h1>
 
 <div class="gallery-layout">
 
   <aside class="filters">
-
-    <h2>Filter</h2>
 
     <div class="filter-group">
       <h3>Artist</h3>
